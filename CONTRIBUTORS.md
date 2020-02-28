@@ -7,4 +7,7 @@
 
 ## Contributors
 
-None yet. Why not be the first?
+* Tao Guo (tguo9)
+* Holy Williams (hlwilliams10)
+* Yue (Alex) Jiang (YueJiangMDSV)
+* Lise Braaten (lisebraaten)
