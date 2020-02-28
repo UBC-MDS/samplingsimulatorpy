@@ -32,7 +32,7 @@ This package allows users to generate virtual populations which can be sampled f
 
 #### How these fit into the Python ecosystem?
 
-To the best of our knowledge, there is currently no existing Python package with the specific functionality to create virtual populations and make the specific sample and sampling distributions described above. There are Python We do make use of many existing Python packages and expand on them to make very specific functions. These include:
+To the best of our knowledge, there is currently no existing Python package with the specific functionality to create virtual populations and make the specific sample and sampling distributions described above. We do make use of many existing Python packages and expand on them to make very specific functions. These include:
  - `scipy.stats` to get distribution functions
  - `np.random` to generate random samples
  - [Altair](https://altair-viz.github.io/) to create plots
