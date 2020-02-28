@@ -1,10 +1,12 @@
 # Credits
 
 
-## Development Lead
+## Contributors
 
 * Tao Guo <tguo9@dons.usfca.edu>
 
-## Contributors
+* Yue Jiang <yue856@gmail.com>
 
-None yet. Why not be the first?
+* Lise Braaten <lisebraaten@gmail.com>
+
+* Holly Williams <Holly.Rourke@gmail.com>
