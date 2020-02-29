@@ -1,12 +1,12 @@
 def generate_virtual_pop(size, distribution_func, *para):
 
     """
-    Create a population
+    Create a virtual population
 
     Parameters
     ----------
     size : int
-        The number of population 
+        The size of the virtual population 
     distribution_func : func
         The function that 
     *para : int
