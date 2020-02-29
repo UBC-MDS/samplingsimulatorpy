@@ -101,3 +101,35 @@ def generate_virtual_pop(size, distribution_func, *para):
     >>> from convertempPy import convertempPy as tmp
     >>> pop = generate_virtual_pop(100, "Variable", normal, 0, 1)
     """
+
+def plot_sampling_hist(pop, samples, var_name, n_s, reps):
+
+    """
+    Create a gird of sampling distribution histogram of the mean 
+    of different sample sizes drawn from a population
+
+    Parameters
+    ----------
+    pop : pd.DataFrame
+        The virtual population as a dataframe
+    samples : pd.DataFrame
+        The samples as a dataframe
+    var_name : string
+        The name of a variable of interest
+    n_s : list
+        A list of sample sizes to try
+    reps : integer
+        The number of replication for each sample size as an integer
+
+    Returns
+    -------
+    altair.vegalite.v3.api.Chart
+        A grid of the sampling distribution plots
+
+    Examples
+    --------
+    >>> from convertempPy import convertempPy as tmp
+    >>> pop = generate_virtual_pop(100, "Variable", normal, 0, 1)
+    >>> samples = draw_samples(pop, 3, [5, 10, 15, 20])
+    >>> plot_sampling_hist(pop, samples, var_name, [5, 10, 15, 20], 3)
+    """
