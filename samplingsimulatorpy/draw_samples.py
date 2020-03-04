@@ -19,14 +19,18 @@ def draw_samples(pop, reps, n_s):
     >>> pop = generate_virtual_pop(100, "Variable", normal, 0, 1)
     >>> samples = draw_samples(pop, 3, [5, 10, 15, 20])
     """
-    samples = pd.DataFrame(index=range(sum(n_s) * reps), columns=["replicate", list(pop.columns)[0], "size", "rep_size"])
+    samples = []
+    rep_list = []
+
+    for i in range(reps):
+        for j in n_s:
+            sample = np.random.choice(np.squeeze(pop.values), size=j)
+            samples.append(sample)
+        
+    samples = np.concatenate(samples)
+    sizes = [n for n in n_s for i in range(n) for j in range(reps)]
     
-    for i in (0, (len(n_s)-1)):
-        for j in range(0, (sum(n_s) * reps)):
-            samples["replicate"][j] = i
-            samples[list(pop.columns)[0]][j] = np.random.choice(np.squeeze(pop.values))
-            samples["size"][j] = n_s[i]
-            
-    samples["rep_size"] = reps
+    for i in n_s:
+        rep_list = rep_list + [j for j in range(1, reps+1) for k in range(i)]
     
-    return(samples)
+    return(pd.DataFrame({"replicate":rep_list, list(pop.columns)[0]:samples, "size":sizes, "rep_size":np.full(len(samples), reps)}))
