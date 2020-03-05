@@ -13,7 +13,7 @@ def draw_samples(pop, reps, n_s):
     Returns
     -------
     pd.DataFrame
-        A two column dataframe containing the sample numbers and sample values
+        A dataframe containing the sample numbers and sample values
     Examples
     --------
     >>> pop = generate_virtual_pop(100, "Variable", normal, 0, 1)
