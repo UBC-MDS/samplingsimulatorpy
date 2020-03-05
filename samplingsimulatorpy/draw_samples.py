@@ -59,7 +59,7 @@ def draw_samples(pop, reps, n_s):
 
     for i in range(reps):
         for j in n_s:
-            sample = np.random.choice(np.squeeze(pop.values), size=j)
+            sample = np.random.choice(pop[list(pop.columns)[0]].tolist(), size=j)
             samples.append(sample)
         
     samples = np.concatenate(samples)
