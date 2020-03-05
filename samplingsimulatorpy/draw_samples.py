@@ -5,6 +5,7 @@ def draw_samples(pop, reps, n_s):
 
     """
     Draws samples of various sizes from a population
+    
     Parameters
     ----------
     pop : pd.DataFrame
@@ -13,10 +14,23 @@ def draw_samples(pop, reps, n_s):
         The number of replication for each sample size as an integer
     n_s : list
         The sample size for each one of the samples as a list
+        
     Returns
     -------
     pd.DataFrame
         A dataframe containing the sample numbers and sample values
+        
+    Raises
+    -------
+    TypeError
+        pop input is a valid data frame
+    TypeError
+        reps input is an integer
+    ValueError
+        reps input is greater than 0
+    TypeError
+        n_s array contains only integers
+        
     Examples
     --------
     >>> pop = generate_virtual_pop(100, "Variable", normal, 0, 1)
