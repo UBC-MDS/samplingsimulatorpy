@@ -1,3 +1,5 @@
+import numpy as np
+
 def stat_summary(population, samples, parameter):
     """
     This function creates a summary stats for population, samples and parameter(s) of interest
@@ -18,5 +20,4 @@ def stat_summary(population, samples, parameter):
     >>> from samplingsimulatorpy import stat_summary
     >>> stat_summary(pop, samples, parameter)
     """
-
-    
+    print(np.mean(population))
