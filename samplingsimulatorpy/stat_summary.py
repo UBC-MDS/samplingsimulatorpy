@@ -35,8 +35,13 @@ def stat_summary(population, samples, parameter):
 
     for i in range(0, len(parameter)):
 
-        new_dict[parameter[i]] = [eval(parameter[i])(population)[0], eval(parameter[i])(samples)[0]]
+        try:
+            pop_para = eval(parameter[i])(population)[0]
+            samples_para = eval(parameter[i])(samples)[0]
+        except AttributeError:
+            print('Please enter a valid parameter(s) of interest')
+            raise AttributeError
+
+        new_dict[parameter[i]] = [pop_para, samples_para]
 
     return(pd.DataFrame(new_dict).set_index('data'))
-
-print(stat_summary(pd.DataFrame(np.random.normal(0,1,100)), pd.DataFrame(np.random.normal(0,1,100)), ['np.mean', 'np.std']))
