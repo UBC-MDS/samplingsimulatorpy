@@ -44,6 +44,6 @@ def generate_virtual_pop(size, distribution_func, *para):
         print('Please enter correct number of parameters for the  distribution function')
         raise
 
-    print(distribution_func(*para, size))
+    pop = pd.DataFrame(distribution_func(*para, size))
 
-generate_virtual_pop(100, np.random.normal, 0, 0.1)
+    return pop
