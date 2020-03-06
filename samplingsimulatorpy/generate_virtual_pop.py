@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 def generate_virtual_pop(size, distribution_func, *para):
 
@@ -21,9 +22,27 @@ def generate_virtual_pop(size, distribution_func, *para):
 
     Examples
     --------
-    >>> from convertempPy import convertempPy as tmp
+    >>> from samplingsimulatorpy import generate_virtual_pop
     >>> pop = generate_virtual_pop(100, "Variable", normal, 0, 1)
     """
+    
+    if (size <= 0) :
+        raise ValueError("Size of population must be a positive integer")
+
+    if (not isinstance(size, int)) :
+        raise TypeError("Size of population must be a positive integer")
+
+    try:
+        distribution_func()
+    except AttributeError:
+        print('Please enter a valid distribution function')
+        raise
+
+    try:
+        distribution_func(*para, size)
+    except TypeErro:
+        print('Please enter correct number of parameters for the  distribution function')
+        raise
 
     print(distribution_func(*para, size))
 
