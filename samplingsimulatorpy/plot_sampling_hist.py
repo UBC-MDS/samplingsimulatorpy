@@ -22,7 +22,7 @@ def plot_sampling_hist(samples):
     --------
     >>> pop = generate_virtual_pop(1000, "Variable", normal, 0, 1)
     >>> samples = draw_samples(pop, 100, [5, 10, 15, 20])
-    >>> plot_sampling_hist(samples, 100, [5, 10, 15, 20])
+    >>> plot_sampling_hist(samples)
     """
     
     summary = samples.groupby(['replicate', 'size', 'rep_size']).mean()
