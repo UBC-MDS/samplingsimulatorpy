@@ -30,7 +30,7 @@ pip install -i https://test.pypi.org/simple/ samplingsimulatorpy
 ## Function Descriptions
 
 - `generate_virtual_pop` creates a virtual population.
-    - **Inputs** : distribution function (i.e. `np.random.lognormal`, `np.random.binomial`, etc), the paramaters required by the distribution function, and the size of the population.
+    - **Inputs** : distribution function (i.e. `np.random.lognormal`, `np.random.binomial`, etc), the parameters required by the distribution function, and the size of the population.
     - **Outputs**: the virtual population as a tibble
 - `draw_samples` generates samples of different sizes
     - **Inputs** : population to sample from, the sample size, and the number of samples
