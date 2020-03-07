@@ -98,7 +98,7 @@ draw_samples(pop, reps, n_s)
 
 **Example:**
 
-`samples <- draw_samples(pop, 3, [5, 10, 15, 20])`
+`samples = draw_samples(pop, 3, [5, 10, 15, 20])`
 
 #### `plot_sample_hist`
 
