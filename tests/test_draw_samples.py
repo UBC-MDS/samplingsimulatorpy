@@ -5,12 +5,12 @@ from pytest import raises
 
 def test_draw_samples():
     
-    pop = generate_virtual_pop(10, "height", np.random.normal, 0, 1)
-    pop1 = generate_virtual_pop(100000, "54355", rexp, 5)
-    pop2 = generate_virtual_pop(100, "height", np.random.normal, 0, 1)
-    pop3 = generate_virtual_pop(10, "x,", np.random.poisson, 0)
+    pop = generate_virtual_pop(10, np.random.normal, 0, 1)
+    pop1 = generate_virtual_pop(100000, np.random.exponential, 0)
+    pop2 = generate_virtual_pop(100, np.random.normal, 0, 1)
+    pop3 = generate_virtual_pop(10, np.random.poisson, 0)
     
-    assert(all(draw_samples(pop1, 1, [1]).columns.values) == np.array(["replicate", "54355", "size", "rep_size"]))
+    assert(all(draw_samples(pop1, 1, [1]).columns.values == (["replicate", "exponential", "size", "rep_size"])))
     assert(len(draw_samples(pop2, 2, [2, 3, 4])) == 18)
     assert(len(draw_samples(pop3, 2, [2, 3]).columns) == 4)
     
@@ -24,4 +24,4 @@ def test_draw_samples():
         draw_samples(pop, 0, [2, 3])
 
     with raises(TypeError, match = "At least one value in sample size array is not an integer value"):
-        draw_samples(pop, 3 [2, 3, 4.5])
+        draw_samples(pop, 3, [2, 3, 4.5])
