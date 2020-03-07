@@ -163,7 +163,7 @@ samples = draw_samples(pop, 3, [10, 20])
 # plot sample histogram
 plot_sample_hist(pop, samples)
 ```
-![](img/sample_dist_output.png.png)
+![](img/sample_dist_output.png)
 
 ```python
 # plot sampling distribution
