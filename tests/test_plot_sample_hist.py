@@ -62,4 +62,3 @@ def test_plot_sample_hist():
     assert test_dict['spec']['encoding']['y']['type'] == 'quantitative', "y-axis should have quantitivate values"
     assert test_dict['spec']['encoding']['y']['aggregate'] == 'count', "y-axis should represent aggregate count data"
     assert test_dict['spec']['encoding']['y']['title'] == 'Count', "y-axis title is incorrect"
-    
