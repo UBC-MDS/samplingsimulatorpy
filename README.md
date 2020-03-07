@@ -109,8 +109,8 @@ plot_sample_hist(pop, samples)
 
 **Arguments:**
 
-  - `pop` the virtual population as a tibble
-  - `samples` the samples as a tibble
+  - `pop` the virtual population as a data frame
+  - `samples` the samples as a data frame
 
 **Example:**
 
