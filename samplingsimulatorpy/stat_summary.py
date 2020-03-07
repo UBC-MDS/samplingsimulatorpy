@@ -4,7 +4,6 @@ import pandas as pd
 def stat_summary(population, samples, parameter):
     """
     This function creates a summary stats for population, samples and parameter(s) of interest
-    
     Parameters
     ----------
     population : pd.DataFrame
