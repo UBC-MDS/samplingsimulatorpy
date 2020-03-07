@@ -11,7 +11,10 @@ def plot_sampling_hist(samples):
     Parameters
     ----------
     samples : pd.DataFrame
-        The samples as a dataframe
+        The samples as a dataframe. 
+        It should be an object created by `draw_samples` function. 
+        Otherwise, it should follow the column names of the output of the `draw_samples` function. 
+        If not, the function may not work. 
         
     Returns
     -------
