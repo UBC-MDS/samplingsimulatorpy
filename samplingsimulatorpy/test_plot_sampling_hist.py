@@ -46,4 +46,3 @@ def test_plot_sampling_hist():
     # Check y-axis is mapped to the correct variable and plotting correctly
     assert test_dict['spec']['encoding']['y']['type'] == 'quantitative', "y-axis should have quantitivate values"
     assert test_dict['spec']['encoding']['y']['aggregate'] == 'count', "y-axis should represent aggregate count data"
-    

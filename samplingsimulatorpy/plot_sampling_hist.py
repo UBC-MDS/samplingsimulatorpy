@@ -42,7 +42,7 @@ def plot_sampling_hist(samples):
     if not np.issubdtype(samples.to_numpy().dtype, np.number):
         raise ValueError("'samples' should only contain numeric values")
         
-    if not x.shape[1]==4:
+    if not samples.shape[1]==4:
         raise ValueError("""The shape of the input samples dataframe should have the 
                      the same shape with the output of draw_samples function""")
 
