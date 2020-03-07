@@ -26,25 +26,25 @@ def test_plot_sample_hist():
     # tests exception is raised when 'pop' or 'samples' is not a dataframe
     with pytest.raises(TypeError) as e:
       assert plot_sample_hist([1, 2, 3], samples)
-      assert str(e.value) == "'pop' should be input as a dataframe"
+      # assert str(e.value) == "'pop' should be input as a dataframe"
       
     with pytest.raises(TypeError) as e:
       assert plot_sample_hist(pop, [1, 2, 3])
-      assert str(e.value) == "'samples' should be input as a dataframe"
+      # assert str(e.value) == "'samples' should be input as a dataframe"
       
     # tests exception is raised when 'pop' is an empty dataframe
     with pytest.raises(TypeError) as e:
       assert plot_sample_hist(pd.DataFrame(), samples)
-      assert str(e.value) == "'pop' appears to be an empty dataframe"
+      # assert str(e.value) == "'pop' appears to be an empty dataframe"
       
     # tests exception is raised when 'pop' or 'samples' have non-numeric values
     with pytest.raises(ValueError) as e:
       assert plot_sample_hist(p_non_num, samples)
-      assert str(e.value) == "'pop' should only contain numeric values"
+      # assert str(e.value) == "'pop' should only contain numeric values"
       
     with pytest.raises(ValueError) as e:
       assert plot_sample_hist(pop, p_non_num)
-      assert str(e.value) == "'samples' should only contain numeric values"
+      # assert str(e.value) == "'samples' should only contain numeric values"
       
     # Check plot is correct type
     assert "altair" in str(type(test)), "the plot should be an Altair object"
