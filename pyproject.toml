@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "This is a sampling simulator"
 authors = ["Your Name <you@example.com>"]
 license = "MIT"
+packages = [
+    { include = "samplingsimulatorpy"},
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
