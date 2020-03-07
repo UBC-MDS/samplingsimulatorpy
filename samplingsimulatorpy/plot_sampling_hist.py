@@ -41,22 +41,6 @@ def plot_sampling_hist(samples):
     
     if not np.issubdtype(samples.to_numpy().dtype, np.number):
         raise ValueError("'samples' should only contain numeric values")
-        
-    if not samples.shape[1]==4:
-        raise ValueError("""The shape of the input samples dataframe should have the 
-                     the same shape with the output of draw_samples function""")
-
-    if "replicate" not in samples.columns.to_list():
-        raise ValueError("""The input samples dataframe should have the 
-                        the same column names with the output of draw_samples function""")
-
-    if "size" not in samples.columns.to_list():
-        raise ValueError("""The input samples dataframe should have the 
-                    the same column names with the output of draw_samples function""")
-
-    if "rep_size" not in samples.columns.to_list():
-        raise ValueError("""The input samples dataframe should have the 
-                    the same column names with the output of draw_samples function""") 
     
     summary = samples.groupby(['replicate', 'size', 'rep_size']).mean()
     summary = summary.reset_index()
