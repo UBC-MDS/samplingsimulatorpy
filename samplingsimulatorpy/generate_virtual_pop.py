@@ -26,8 +26,6 @@ def generate_virtual_pop(size, distribution_func, *para):
         size input is greater than 0
     TypeError
         size input is an integer
-    AttributeError
-        distribution_func is a valid distribution function
     TypeError
         *para number of parameters for the distribution function
 
@@ -44,17 +42,11 @@ def generate_virtual_pop(size, distribution_func, *para):
         raise TypeError("Size of population must be a positive integer")
 
     try:
-        distribution_func()
-    except AttributeError:
-        print('Please enter a valid distribution function')
-        raise AttributeError
-
-    try:
         distribution_func(*para, size)
     except TypeError:
-        print('Please enter correct number of parameters for the distribution function')
+        print('Please enter a valid distribution function with correct number of parameters for the distribution function')
         raise TypeError
 
-    pop = pd.DataFrame(distribution_func(*para, size))
+    pop = pd.DataFrame(distribution_func(*para, size=size))
 
     return pop
