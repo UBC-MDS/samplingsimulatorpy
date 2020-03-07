@@ -11,7 +11,7 @@ def generate_virtual_pop(size, distribution_func, *para):
     size : int
         The size of the virtual population 
     distribution_func : func
-        The function that 
+        The function that came from numpy.random
     *para : int
         The parameters the distribution_func is using
 
@@ -20,10 +20,21 @@ def generate_virtual_pop(size, distribution_func, *para):
     pd.DataFrame
         The virtual population as a dataframe
 
+    Raises
+    -------
+    ValueError
+        size input is greater than 0
+    TypeError
+        size input is an integer
+    AttributeError
+        distribution_func is a valid distribution function
+    TypeError
+        *para number of parameters for the distribution function
+
     Examples
     --------
     >>> from samplingsimulatorpy import generate_virtual_pop
-    >>> pop = generate_virtual_pop(100, "Variable", normal, 0, 1)
+    >>> pop = generate_virtual_pop(100, np.random.normal, 0, 1)
     """
     
     if (size <= 0) :
@@ -36,13 +47,13 @@ def generate_virtual_pop(size, distribution_func, *para):
         distribution_func()
     except AttributeError:
         print('Please enter a valid distribution function')
-        raise
+        raise AttributeError
 
     try:
         distribution_func(*para, size)
     except TypeError:
-        print('Please enter correct number of parameters for the  distribution function')
-        raise
+        print('Please enter correct number of parameters for the distribution function')
+        raise TypeError
 
     pop = pd.DataFrame(distribution_func(*para, size))
 
