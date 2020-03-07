@@ -6,14 +6,6 @@ import numpy as np
 import pytest
 
 def test_plot_sampling_hist():
-    """
-    This function tests the plot_sampling_hist function.
-    
-    Returns:
-    --------
-    None
-        The test should pass and no asserts should be displayed. 
-    """
     
     # get helper data
     pop = pd.DataFrame(np.random.normal(0, 1, 1000), columns=["var_name"])
