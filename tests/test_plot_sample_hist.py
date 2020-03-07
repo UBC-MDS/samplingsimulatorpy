@@ -1,4 +1,5 @@
-from samplingsimulatorpy.plot_sample_hist import plot_sample_hist, draw_samples
+from samplingsimulatorpy.plot_sample_hist import plot_sample_hist
+from samplingsimulatorpy.draw_samples import draw_samples
 import pandas as pd
 import altair as alt
 import numpy as np
