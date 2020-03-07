@@ -80,7 +80,7 @@ generate_virtual_pop(size, distribution_func, *para)
 
 **Example:**
 
-`pop <- generate_virtual_pop(100, "height", rnorm, 0, 1)`
+`pop = generate_virtual_pop(100, np.random.normal, 0, 1)`
 
 #### `draw_samples`
 
