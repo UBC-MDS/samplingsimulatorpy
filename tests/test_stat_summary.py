@@ -6,7 +6,7 @@ import pandas as pd
 new_dict = {'data' : ['pop', 'samples'],
             'np.mean' : [1.0, 1.0],
             'np.std' : [0.0, 0.0]
-}
+            }
 
 excepted_df = pd.DataFrame(new_dict).set_index('data')
 
