@@ -14,6 +14,17 @@ def stat_summary(population, samples, parameter):
     parameter : list
         The list of parameters
     
+    Raises
+    -------
+    TypeError
+        population input should be a dataframe contains value
+    TypeError
+        samples input should be a dataframe contains value
+    TypeError
+        parameter input should be a list contains value
+    AttributeError
+        parameter is interest for the summary stats
+    
     Returns
     -------
     pd.DataFrame
@@ -22,7 +33,7 @@ def stat_summary(population, samples, parameter):
     Examples
     --------
     >>> from samplingsimulatorpy import stat_summary
-    >>> stat_summary(pop, samples, parameter)
+    >>> stat_summary(pop, samples, ['np.mean', 'np.std'])
     """
 
     if (len(population) <=0 or not isinstance(population, pd.DataFrame)):
