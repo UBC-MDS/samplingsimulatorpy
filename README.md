@@ -125,7 +125,7 @@ plot_sampling_hist(pop, samples)
 
 **Arguments:**
 
-  - `samples` the samples as a tibble
+  - `samples` the samples as a data frame
 
 **Example:**
 
