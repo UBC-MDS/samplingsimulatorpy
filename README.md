@@ -91,10 +91,10 @@ draw_samples(pop, reps, n_s)
 
 **Arguments:**
 
-  - `pop` the virtual population as a tibble
+  - `pop` the virtual population as a data frame
   - `reps` the number of replication for each sample size as an integer
     value
-  - `n_s` the sample size for each one of the samples as an array
+  - `n_s` the sample size for each one of the samples as a list
 
 **Example:**
 
