@@ -18,12 +18,12 @@ def test_plot_sampling_hist():
     # tests exception is raised when 'samples' is not a dataframe
     with pytest.raises(TypeError) as e:
       assert plot_sampling_hist([1, 2, 3])
-      assert str(e.value) == "'samples' should be input as a dataframe"
+      # assert str(e.value) == "'samples' should be input as a dataframe"
       
     # tests exception is raised when 'samples' have non-numeric values
     with pytest.raises(ValueError) as e:
       assert plot_sampling_hist(non_num)
-      assert str(e.value) == "'samples' should only contain numeric values"
+      # assert str(e.value) == "'samples' should only contain numeric values"
         
     # Check samples datafram has correct columns
     assert "replicate" in samples.columns.to_list()
