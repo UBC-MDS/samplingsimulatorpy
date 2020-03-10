@@ -21,14 +21,14 @@ def test_draw_samples():
     with raises(TypeError, match="Population input is not a valid data frame"):
         draw_samples(np.array([1, 2, 3]), 1, [2, 3])
 
-    with raises(TypeError, match="Number of replications \
-                input must be an integer value"):
+    with raises(TypeError, match="Number of replications "
+                "input must be an integer value"):
         draw_samples(pop, 1.5, [2, 3])
 
-    with raises(ValueError, match="Number of replications \
-                must be greater than 0"):
+    with raises(ValueError, match="Number of replications "
+                "must be greater than 0"):
         draw_samples(pop, 0, [2, 3])
 
-    with raises(TypeError, match="At least one value in sample  \
-                size array is not an integer value"):
+    with raises(TypeError, match="At least one value in sample "
+                "size array is not an integer value"):
         draw_samples(pop, 3, [2, 3, 4.5])
