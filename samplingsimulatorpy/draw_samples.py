@@ -34,7 +34,7 @@ def draw_samples(pop, reps, n_s):
 
     Examples
     --------
-    >>> pop = generate_virtual_pop(100, "Variable", normal, 0, 1)
+    >>> pop = generate_virtual_pop(100, np.random.normal, 0, 1)
     >>> samples = draw_samples(pop, 3, [5, 10, 15, 20])
     """
 
