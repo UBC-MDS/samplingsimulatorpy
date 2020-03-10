@@ -28,6 +28,10 @@ def plot_sampling_hist(samples):
         if samples input is not a valid data frame
     ValueError
         samples input should only contain numeric values
+    ValueError
+        samples data frame should have only 4 columns
+    KeyError
+        samples input should contain 'replicate', 'size', and 'rep_size' columns
 
     Examples
     --------
@@ -42,6 +46,21 @@ def plot_sampling_hist(samples):
 
     if not np.issubdtype(samples.to_numpy().dtype, np.number):
         raise ValueError("'samples' should only contain numeric values")
+
+    if not samples.shape[1] == 4:
+        raise ValueError("Samples data frame should have only 4 columns")
+
+    if "replicate" not in samples.columns.to_list():
+        raise KeyError("""The input samples dataframe should have contain 'replicate',
+                         'size', and 'rep_size' columns""")
+
+    if "size" not in samples.columns.to_list():
+        raise KeyError("""The input samples dataframe should have contain 'replicate',
+                        'size', and 'rep_size' columns""")
+
+    if "rep_size" not in samples.columns.to_list():
+        raise KeyError("""The input samples dataframe should have contain 'replicate',
+                         'size', and 'rep_size' columns""")
 
     summary = samples.groupby(['replicate', 'size', 'rep_size']).mean()
     summary = summary.reset_index()
