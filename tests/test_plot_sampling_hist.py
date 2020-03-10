@@ -11,20 +11,45 @@ def test_plot_sampling_hist():
     pop = pd.DataFrame(np.random.normal(0, 1, 1000), columns=["var_name"])
     samples = draw_samples(pop, 100, [5, 20, 50, 100])
     non_num =  pd.DataFrame({'values': [1, 2, 3, 'a', 5]})
+    test_df1 = pd.DataFrame({'values': [1, 2, 3, 4, 5]})
+    test_df2 = pd.DataFrame({'values': [1, 2, 3, 4, 5], 
+                            'sample_size': [10, 10, 10, 10, 10],
+                            'replicate': [1, 2, 3, 4, 5], 
+                            'rep_size': [100, 100, 100, 100, 100]})
+    test_df3 = pd.DataFrame({'values': [1, 2, 3, 4, 5], 
+                            'size': [10, 10, 10, 10, 10],
+                            'rep': [1, 2, 3, 4, 5], 
+                            'rep_size': [100, 100, 100, 100, 100]})
+    test_df4 = pd.DataFrame({'values': [1, 2, 3, 4, 5], 
+                            'size': [10, 10, 10, 10, 10],
+                            'replicate': [1, 2, 3, 4, 5], 
+                            'rep_sizes': [100, 100, 100, 100, 100]})
     
     test = plot_sampling_hist(samples)
     test_dict = test.to_dict()
     
     # tests exception is raised when 'samples' is not a dataframe
-    with pytest.raises(TypeError) as e:
+    with pytest.raises(TypeError):
       assert plot_sampling_hist([1, 2, 3])
-      # assert str(e.value) == "'samples' should be input as a dataframe"
-      
+    
+    # tests exception is raised when 'samples' does not have 4 columns
+    with pytest.raises(ValueError):
+      assert plot_sampling_hist(test_df1)
+
     # tests exception is raised when 'samples' have non-numeric values
-    with pytest.raises(ValueError) as e:
+    with pytest.raises(ValueError):
       assert plot_sampling_hist(non_num)
-      # assert str(e.value) == "'samples' should only contain numeric values"
-        
+    
+    # tests exception is raised when 'samples' does not have matchting columns
+    with pytest.raises(KeyError):
+      assert plot_sampling_hist(test_df2)
+    
+    with pytest.raises(KeyError):
+      assert plot_sampling_hist(test_df3)
+
+    with pytest.raises(KeyError):
+      assert plot_sampling_hist(test_df4)
+   
     # Check samples datafram has correct columns
     assert "replicate" in samples.columns.to_list()
     assert "size" in samples.columns.to_list()
