@@ -4,8 +4,10 @@ import pytest
 
 
 def test_pop():
-    assert len(generate_virtual_pop(100, "Height", np.random.normal, 0, 1)) == 100
-    assert len(generate_virtual_pop(200, "Height", np.random.poisson, 10)) == 200
+    assert len(generate_virtual_pop(100, "Height",
+                                    np.random.normal, 0, 1)) == 100
+    assert len(generate_virtual_pop(200, "Height",
+                                    np.random.poisson, 10)) == 200
     assert len(generate_virtual_pop(50, "Height", np.random.gamma, 2, 2)) == 50
 
 
