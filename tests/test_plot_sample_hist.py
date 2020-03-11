@@ -55,7 +55,7 @@ def test_plot_sample_hist():
         'quantitative', "x-axis should have quantitivate values"
     assert test_dict['spec']['encoding']['x']['field'] == \
         'var_name', "x-axis is mapped to the wrong variable"
-    assert test_dict['spec']['encoding']['x']['bin'] == \
+    assert test_dict['spec']['encoding']['x']['bin'] is \
         True, "x-axis should be binned for histogram plots"
 
     # Check y-axis is mapped to the correct variable and plotting correctly
