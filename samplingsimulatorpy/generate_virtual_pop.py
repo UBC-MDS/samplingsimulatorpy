@@ -44,8 +44,8 @@ def generate_virtual_pop(size, distribution_func, *para):
     try:
         distribution_func(*para, size)
     except TypeError:
-        print('Please enter a valid distribution function' +
-              'with correct number of parameters for' +
+        print('Please enter a valid distribution function'
+              'with correct number of parameters for'
               'the distribution function')
         raise TypeError
 

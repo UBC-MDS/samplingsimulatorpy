@@ -14,7 +14,8 @@ def plot_sampling_hist(samples):
     samples : pd.DataFrame
         The samples as a dataframe.
         It should be an object created by `draw_samples` function.
-        Otherwise, it should follow the column names of the output of the `draw_samples` function.
+        Otherwise, it should follow the column names of the output
+        of the `draw_samples` function.
         If not, the function may not work.
 
     Returns
@@ -31,7 +32,8 @@ def plot_sampling_hist(samples):
     ValueError
         samples data frame should have only 4 columns
     KeyError
-        samples input should contain 'replicate', 'size', and 'rep_size' columns
+        samples input should contain
+        'replicate', 'size', and 'rep_size' columns
 
     Examples
     --------
@@ -67,8 +69,9 @@ def plot_sampling_hist(samples):
     x_max = summary.iloc[:, 3].max()
     x_min = summary.iloc[:, 3].min()
     p = alt.Chart(summary).mark_bar().encode(
-        x=alt.X(f"{summary.columns[3]}:Q", title="mean of sampling distribution",
-                bin=alt.Bin(extent=[x_min, x_max], step=1/10)),
+        x=alt.X(f"{summary.columns[3]}:Q",
+                title="mean of sampling distribution",
+                bin=alt.Bin(extent=[x_min, x_max], step=1 / 10)),
         y=alt.Y('count()')).facet(
         facet='size', columns=2)
     return p
