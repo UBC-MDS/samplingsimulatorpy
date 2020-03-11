@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def generate_virtual_pop(size, distribution_func, *para):
+def generate_virtual_pop(size, population_name, distribution_func, *para):
 
     """
     Create a virtual population
@@ -10,6 +10,8 @@ def generate_virtual_pop(size, distribution_func, *para):
     ----------
     size : int
         The size of the virtual population
+    population_name : str
+        The population_name of the virtual population
     distribution_func : func
         The function that came from numpy.random
     *para : int
@@ -32,7 +34,7 @@ def generate_virtual_pop(size, distribution_func, *para):
     Examples
     --------
     >>> from samplingsimulatorpy import generate_virtual_pop
-    >>> pop = generate_virtual_pop(100, np.random.normal, 0, 1)
+    >>> pop = generate_virtual_pop(100, "Height", np.random.normal, 0, 1)
     """
 
     if (size <= 0):
@@ -50,6 +52,6 @@ def generate_virtual_pop(size, distribution_func, *para):
         raise TypeError
 
     pop = pd.DataFrame(distribution_func(*para, size=size),
-                       columns=[distribution_func.__name__])
+                       columns=[population_name])
 
     return pop
