@@ -42,6 +42,11 @@ def draw_samples(pop, reps, n_s):
     if (len(pop) <= 0 or not isinstance(pop, pd.DataFrame)):
         raise TypeError("Population input "
                         "is not a valid data frame")
+    
+    # Check that population input has a string column name
+    if (not isinstance(list(pop.columns)[0], str)):
+        raise TypeError("Population input name "
+                        "is not a valid string")
 
     # Check number of reps is an integer
     if not isinstance(reps, int):
