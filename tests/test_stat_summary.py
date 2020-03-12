@@ -3,15 +3,17 @@ from samplingsimulatorpy.stat_summary import stat_summary
 import pytest
 import pandas as pd
 
+# Get the helper data
 new_dict = {'data': ['pop', 'samples'],
-            'np.mean': [np.mean([1, 1, 1, 1, 1]), 1.0],
-            'np.std': [0.0, 0.0]
+            'np.mean': [np.mean([1, 1, 1, 1, 1]), np.mean([1, 1, 1, 1, 1])],
+            'np.std': [np.std([1, 1, 1, 1, 1]), np.std([1, 1, 1, 1, 1])]
             }
 
 excepted_df = pd.DataFrame(new_dict).set_index('data')
 
 
 def test_pop():
+    # Test if not a d
     with pytest.raises(TypeError):
         stat_summary([], [], ['np.mean', 'np.std'])
     with pytest.raises(TypeError):
