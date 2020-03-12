@@ -10,6 +10,7 @@ def test_draw_samples():
     pop1 = generate_virtual_pop(100000, "Height", np.random.exponential, 0)
     pop2 = generate_virtual_pop(100, "Height", np.random.normal, 0, 1)
     pop3 = generate_virtual_pop(10, "Height", np.random.poisson, 0)
+    pop4 = generate_virtual_pop(100, 42, np.random.normal, 0, 1)
 
     assert(all(draw_samples(pop1, 1, [1]).columns.values == (["replicate",
                                                              "Height",
@@ -20,6 +21,10 @@ def test_draw_samples():
 
     with raises(TypeError, match="Population input is not a valid data frame"):
         draw_samples(np.array([1, 2, 3]), 1, [2, 3])
+
+    with raises(TypeError, match="Population input name "
+                "is not a valid string"):
+        draw_samples(pop4, 2, [5, 10, 15, 20])
 
     with raises(TypeError, match="Number of replications "
                 "input must be an integer value"):
