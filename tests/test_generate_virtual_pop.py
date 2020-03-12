@@ -4,6 +4,7 @@ import pytest
 
 
 def test_pop():
+    # Check if the length of the dataframe is as expected
     assert len(generate_virtual_pop(100, "Height",
                                     np.random.normal, 0, 1)) == 100
     assert len(generate_virtual_pop(200, "Height",
@@ -12,6 +13,7 @@ def test_pop():
 
 
 def test_neg_size():
+    # Check if the negative size will give a ValueError
     with pytest.raises(ValueError):
         generate_virtual_pop(-100, "Height", np.random.normal, 0, 1)
     with pytest.raises(ValueError):
@@ -21,6 +23,7 @@ def test_neg_size():
 
 
 def test_not_int():
+    # Check if the float number size will give a ValueError
     with pytest.raises(TypeError):
         generate_virtual_pop(10.5, "Height", np.random.normal, 0, 1)
     with pytest.raises(TypeError):
@@ -30,6 +33,7 @@ def test_not_int():
 
 
 def test_not_func():
+    # Check if the not exist function will give a AttributeError
     with pytest.raises(AttributeError):
         generate_virtual_pop(100, "Height", np.random.nomal, 0, 1)
     with pytest.raises(AttributeError):
@@ -39,6 +43,7 @@ def test_not_func():
 
 
 def test_not_right_number():
+    # Check if the incorrect number of parameters will give a TypeError
     with pytest.raises(TypeError):
         generate_virtual_pop(100, "Height", np.random.normal, 0, 1, 2)
     with pytest.raises(TypeError):
