@@ -26,6 +26,8 @@ def draw_samples(pop, reps, n_s):
     TypeError
         pop input is a valid data frame
     TypeError
+        pop name input is a valid string
+    TypeError
         reps input is an integer
     ValueError
         reps input is greater than 0
