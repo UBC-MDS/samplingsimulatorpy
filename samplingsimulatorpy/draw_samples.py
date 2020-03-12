@@ -71,7 +71,7 @@ def draw_samples(pop, reps, n_s):
     s = [n for n in n_s for i in range(n) for j in range(reps)]
 
     for i in n_s:
-        rep_list = rep_list + [j for j in range(1, reps+1) for k in range(i)]
+        rep_list = rep_list + [j for j in range(1, reps + 1) for k in range(i)]
 
     return(pd.DataFrame({"replicate": rep_list, list(pop.columns)[0]: samples,
                         "size": s, "rep_size": np.full(len(samples), reps)}))

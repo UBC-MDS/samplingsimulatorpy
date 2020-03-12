@@ -61,7 +61,6 @@ To the best of our knowledge, there is currently no existing Python package with
 - pandas = "^1.0.1"
 - numpy = "^1.18.1"
 - altair = "^4.0.1"
-- flake8 = "^3.7.9"
 
 ## Usage
 

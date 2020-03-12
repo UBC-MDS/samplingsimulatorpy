@@ -19,7 +19,7 @@ def plot_sample_hist(pop, samples):
     altair.vegalite.v3.api.Chart
         A grid of the sample distribution plots
 
-     Raises
+    Raises
     -------
     TypeError
         if pop input is not a valid data frame
@@ -59,7 +59,7 @@ def plot_sample_hist(pop, samples):
     # only look at one sample (ignore replicates)
     s_df = samples.query('replicate == 1')
     s_df.loc[:, 'Sample Distribution Histograms'] = \
-        'Sample Size=' + s_df['size'].astype(str))
+        'Sample Size=' + s_df['size'].astype(str)
     pop_copy = pop.copy()
     pop_copy.loc[:, 'Sample Distribution Histograms'] = "True Population"
 
