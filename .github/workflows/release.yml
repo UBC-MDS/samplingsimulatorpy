@@ -14,6 +14,8 @@ jobs:
       with:
         python-version: 3.7
     - name: Install dependencies
+      env:
+        POETRY_VIRTUALENVS_CREATE: false
       run: |
         pip install poetry
         poetry install
@@ -36,22 +38,34 @@ jobs:
       with:
         ref: master
         fetch-depth: '0'
-    - name: Bump package versions
+    - name: Temporarily disable "include administrators" branch protection
+      uses: benjefferies/branch-protection-bot@master
+      if: always()
+      with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+    - name: Bump version and tagging and publish
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         poetry run semantic-release version
         poetry version $(grep "version" */__init__.py | cut -d "'" -f 2 | cut -d '"' -f 2)
-        git commit -m "Bump versions" -a
-    - name: Push package version changes
+        git commit -m "Add changes" -a
+    - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Get release tag version from package version
+    - name: Enable "include administrators" branch protection
+      uses: benjefferies/branch-protection-bot@master
+      if: always()  # Force to always run this step to ensure "include administrators" is always turned back on
+      with:
+        access-token: ${{ secrets.ACCESS_TOKEN }}
+        owner: tguo9
+        repo: samplingsimulatorpy
+    - name: Release tag
       run: |
         echo ::set-output name=release_tag::$(grep "version" */__init__.py | cut -d "'" -f 2 | cut -d '"' -f 2)
       id: release
-    - name: Create Release with new version
+    - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       env:
