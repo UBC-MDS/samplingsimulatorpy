@@ -7,6 +7,10 @@ license = "MIT"
 packages = [
     { include = "samplingsimulatorpy"},
 ]
+readme = "README.md"
+homepage = "https://github.com/UBC-MDS/samplingsimulatorpy"
+repository = "https://github.com/UBC-MDS/samplingsimulatorpy"
+documentation = 'https://samplingsimulatorpy.readthedocs.io'
 
 [tool.poetry.dependencies]
 python = "^3.7"
