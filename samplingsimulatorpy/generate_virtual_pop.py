@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 def generate_virtual_pop(size, population_name, distribution_func, *para):
