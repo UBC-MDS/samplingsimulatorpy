@@ -1,3 +1,5 @@
+<img src="img/logopyfill.png" width="180" align="right"/>
+
 ## samplingsimulatorpy 
 
 ![build](https://github.com/UBC-MDS/samplingsimulatorpy/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/samplingsimulatorpy/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/samplingsimulatorpy) ![Release](https://github.com/UBC-MDS/samplingsimulatorpy/workflows/Release/badge.svg)
@@ -68,18 +70,19 @@ To the best of our knowledge, there is currently no existing Python package with
 
 ``` 
 from samplingsimulatorpy import generate_virtual_pop
-generate_virtual_pop(size, distribution_func, *para)
+generate_virtual_pop(size, population_name, distribution_func, *para)
 ```
 
 **Arguments:**
 
   - `size`: The number of samples
+  - `population_name`: The name to assign to the virtual population
   - `distribution_func`: The distribution that we are generating samples from
   - `*para`: The arguments required for the distribution function
 
 **Example:**
 
-`pop = generate_virtual_pop(100, np.random.normal, 0, 1)`
+`pop = generate_virtual_pop(100, "height", np.random.normal, 0, 1)`
 
 #### `draw_samples`
 
@@ -91,8 +94,7 @@ draw_samples(pop, reps, n_s)
 **Arguments:**
 
   - `pop` the virtual population as a data frame
-  - `reps` the number of replication for each sample size as an integer
-    value
+  - `reps` the number of replication for each sample size as an integer value
   - `n_s` the sample size for each one of the samples as a list
 
 **Example:**
@@ -113,13 +115,13 @@ plot_sample_hist(pop, samples)
 
 **Example:**
 
-`plot_sample_hist(samples)`
+`plot_sample_hist(pop, samples)`
 
 #### `plot_sampling_hist`
 
 ``` 
 from samplingsimulatorpy import plot_sampling_hist
-plot_sampling_hist(pop, samples)
+plot_sampling_hist(samples)
 ```
 
 **Arguments:**
@@ -156,7 +158,7 @@ from samplingsimulatorpy import generate_virtual_pop,
                                 plot_sampling_dist,
                                 stat_summary
 # create virtual population
-pop = generate_virtual_pop(100, np.random.normal, 0, 1)
+pop = generate_virtual_pop(100, "height", np.random.normal, 0, 1)
 # take samples
 samples = draw_samples(pop, 3, [10, 20])
 # plot sample histogram
