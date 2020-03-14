@@ -12,7 +12,7 @@ def draw_samples(pop, reps, n_s):
     pop : pd.DataFrame
         The virtual population as a dataframe
     reps : integer
-        The number of replication for each sample size as an integer
+        The number of replications for each sample size as an integer
     n_s : list
         The sample size for each one of the samples as a list
 
