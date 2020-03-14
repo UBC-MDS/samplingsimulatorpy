@@ -65,7 +65,7 @@ def plot_sample_hist(pop, samples):
 
     # combine into one df for plotting
     plot_data = pd.concat([s_df, pop_copy], ignore_index=True, sort=False)
-
+    pd.options.mode.chained_assignment = None
     # create facetted chart
     return alt.Chart(plot_data).mark_bar().encode(
         alt.X(f"{plot_data.columns[1]}:Q", bin=True),
