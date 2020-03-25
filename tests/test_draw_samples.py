@@ -5,6 +5,13 @@ from pytest import raises
 
 
 def test_draw_samples():
+    """
+    This function tests the draw_samples function.
+    Returns:
+    --------
+    None
+        All tests should pass and no asserts or errors should be raised.
+    """
 
     # Create helper data
     pop = generate_virtual_pop(10, "Height", np.random.normal, 0, 1)
