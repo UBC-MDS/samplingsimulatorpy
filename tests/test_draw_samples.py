@@ -30,15 +30,17 @@ def test_draw_samples():
                 "is not a valid string"):
         draw_samples(pop4, 2, [5, 10, 15, 20])
 
-    # 
+    # Check that if rep input is non-integer TypeError is raised
     with raises(TypeError, match="Number of replications "
                 "input must be an integer value"):
         draw_samples(pop, 1.5, [2, 3])
 
+    # Check that if rep input is 0 or less ValueError is raised
     with raises(ValueError, match="Number of replications "
                 "must be greater than 0"):
         draw_samples(pop, 0, [2, 3])
 
+    # Check if not all sample array values are integers raise TypeError
     with raises(TypeError, match="At least one value in sample "
                 "size array is not an integer value"):
         draw_samples(pop, 3, [2, 3, 4.5])
