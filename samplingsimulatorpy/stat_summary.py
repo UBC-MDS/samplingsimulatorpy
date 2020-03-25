@@ -6,6 +6,7 @@ def stat_summary(population, samples, parameter):
     """
     This function creates a summary stats for population,
     samples and parameter(s) of interest
+    
     Parameters
     ----------
     population : pd.DataFrame
@@ -33,7 +34,7 @@ def stat_summary(population, samples, parameter):
 
     Examples
     --------
-    >>> from samplingsimulatorpy import stat_summary
+    >>> from samplingsimulatorpy.stat_summary import stat_summary
     >>> stat_summary(pop, samples, ['np.mean', 'np.std'])
     """
 
