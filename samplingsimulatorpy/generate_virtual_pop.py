@@ -3,7 +3,6 @@ import numpy as np
 
 
 def generate_virtual_pop(size, population_name, distribution_func, *para):
-
     """
     Create a virtual population
 
@@ -34,7 +33,8 @@ def generate_virtual_pop(size, population_name, distribution_func, *para):
 
     Examples
     --------
-    >>> from samplingsimulatorpy.generate_virtual_pop import generate_virtual_pop
+    >>> from samplingsimulatorpy.generate_virtual_pop
+                                                import generate_virtual_pop
     >>> pop = generate_virtual_pop(100, "Height", np.random.normal, 0, 1)
     """
 
