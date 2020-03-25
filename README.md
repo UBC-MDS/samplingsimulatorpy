@@ -153,11 +153,12 @@ plot_sampling_hist(pop, samples, parameter)
 
 ```python
 import numpy as np
-from samplingsimulatorpy import generate_virtual_pop,
-                                draw_samples,
-                                plot_sample_hist,
-                                plot_sampling_hist,
-                                stat_summary
+from samplingsimulatorpy.generate_virtual_pop import generate_virtual_pop
+from samplingsimulatorpy.draw_samples import draw_samples
+from samplingsimulatorpy.plot_sample_hist import plot_sample_hist
+from samplingsimulatorpy.plot_sampling_hist import plot_sampling_hist
+from samplingsimulatorpy.stat_summary import stat_summary
+
 # create virtual population
 pop = generate_virtual_pop(100, "height", np.random.normal, 0, 1)
 # take samples
