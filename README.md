@@ -40,7 +40,7 @@ pip install -i https://test.pypi.org/simple/ samplingsimulatorpy
 - `plot_sample_hist` creates sample distributions for different sample sizes.
     - **Inputs** : population to sample from, the samples to plot, and a vector of the sample sizes
     - **Outputs**: returns a grid of sample distribution plots
-- `plot_sampling_dist` creates sampling distributions for different sample sizes.
+- `plot_sampling_hist` creates sampling distributions for different sample sizes.
     - **Inputs** : population to sample from, the samples to plot, and a vector of the sample sizes
     - **Outputs**: returns a grid of sampling distribution plots
 - `stat_summary`: returns a summary of the statistical parameters of interest
@@ -142,7 +142,7 @@ plot_sampling_hist(pop, samples, parameter)
 **Arguments**
 
   - `population` The virtual population
-  - `samples` The drawed samples
+  - `samples` The drawn samples
   - `parameter` The parameter(s) of interest
 
 **Example**
@@ -152,10 +152,11 @@ plot_sampling_hist(pop, samples, parameter)
 ### Example Usage Scenario
 
 ```python
+import numpy as np
 from samplingsimulatorpy import generate_virtual_pop,
                                 draw_samples,
-                                plot_sample_dist,
-                                plot_sampling_dist,
+                                plot_sample_hist,
+                                plot_sampling_hist,
                                 stat_summary
 # create virtual population
 pop = generate_virtual_pop(100, "height", np.random.normal, 0, 1)
@@ -184,3 +185,13 @@ The official documentation is hosted on Read the Docs: <https://samplingsimulato
 
 ### Credits
 This package was created with Cookiecutter and the UBC-MDS/cookiecutter-ubc-mds project template, modified from the [pyOpenSci/cookiecutter-pyopensci](https://github.com/pyOpenSci/cookiecutter-pyopensci) project template and the [audreyr/cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).
+
+### References
+
+McKinney, Wes et al., (2010). Data structures for statistical computing in Python. Proceedings of the 9th Python in Science Conference. Austin, TX.
+
+Oliphant, T. E. (2006). A guide to NumPy (Vol. 1). Trelgol Publishing USA.
+
+Van Rossum, G., & Drake, F. L. (2009). Python 3 Reference Manual. Scotts Valley, CA: CreateSpace.
+
+VanderPlas et al., (2018). Altair: Interactive Statistical Visualizations for Python. Journal of Open Source Software, 3(32), 1057, https://doi.org/10.21105/joss.01057
