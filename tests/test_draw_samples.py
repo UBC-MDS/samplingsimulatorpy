@@ -6,6 +6,7 @@ from pytest import raises
 
 def test_draw_samples():
 
+    # Create helper data
     pop = generate_virtual_pop(10, "Height", np.random.normal, 0, 1)
     pop1 = generate_virtual_pop(100000, "Height", np.random.exponential, 0)
     pop2 = generate_virtual_pop(100, "Height", np.random.normal, 0, 1)
