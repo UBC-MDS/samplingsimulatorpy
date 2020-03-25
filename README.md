@@ -69,7 +69,7 @@ To the best of our knowledge, there is currently no existing Python package with
 #### `generate_virtual_pop`
 
 ``` 
-from samplingsimulatorpy import generate_virtual_pop
+from samplingsimulatorpy.generate_virtual_pop import generate_virtual_pop
 generate_virtual_pop(size, population_name, distribution_func, *para)
 ```
 
@@ -87,15 +87,15 @@ generate_virtual_pop(size, population_name, distribution_func, *para)
 #### `draw_samples`
 
 ``` 
-from samplingsimulatorpy import draw_samples
-draw_samples(pop, reps, n_s)
+from samplingsimulatorpy.draw_samples import draw_samples
+draw_samples(pop, reps, sample_size)
 ```
 
 **Arguments:**
 
   - `pop` the virtual population as a data frame
   - `reps` the number of replication for each sample size as an integer value
-  - `n_s` the sample size for each one of the samples as a list
+  - `sample_size` the sample size for each one of the samples as a list
 
 **Example:**
 
@@ -104,7 +104,7 @@ draw_samples(pop, reps, n_s)
 #### `plot_sample_hist`
 
 ``` 
-from samplingsimulatorpy import plot_sample_hist
+from samplingsimulatorpy.plot_sample_hist import plot_sample_hist
 plot_sample_hist(pop, samples)
 ```
 
@@ -120,7 +120,7 @@ plot_sample_hist(pop, samples)
 #### `plot_sampling_hist`
 
 ``` 
-from samplingsimulatorpy import plot_sampling_hist
+from samplingsimulatorpy.plot_sampling_hist import plot_sampling_hist
 plot_sampling_hist(samples)
 ```
 
@@ -135,7 +135,7 @@ plot_sampling_hist(samples)
 #### `stat_summary`
 
 ``` 
-from samplingsimulatorpy import stat_summary
+from samplingsimulatorpy.stat_summary import stat_summary
 plot_sampling_hist(pop, samples, parameter)
 ```
 
@@ -153,11 +153,12 @@ plot_sampling_hist(pop, samples, parameter)
 
 ```python
 import numpy as np
-from samplingsimulatorpy import generate_virtual_pop,
-                                draw_samples,
-                                plot_sample_hist,
-                                plot_sampling_hist,
-                                stat_summary
+from samplingsimulatorpy.generate_virtual_pop import generate_virtual_pop
+from samplingsimulatorpy.draw_samples import draw_samples
+from samplingsimulatorpy.plot_sample_hist import plot_sample_hist
+from samplingsimulatorpy.plot_sampling_hist import plot_sampling_hist
+from samplingsimulatorpy.stat_summary import stat_summary
+
 # create virtual population
 pop = generate_virtual_pop(100, "height", np.random.normal, 0, 1)
 # take samples
