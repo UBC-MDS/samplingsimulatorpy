@@ -188,7 +188,7 @@ This package was created with Cookiecutter and the UBC-MDS/cookiecutter-ubc-mds 
 
 ### References
 
-McKinney, Wes et al (2010). Data structures for statistical computing in Python. Proceedings of the 9th Python in Science Conference. Austin, TX.
+McKinney, Wes et al., (2010). Data structures for statistical computing in Python. Proceedings of the 9th Python in Science Conference. Austin, TX.
 
 Oliphant, T. E. (2006). A guide to NumPy (Vol. 1). Trelgol Publishing USA.
 
