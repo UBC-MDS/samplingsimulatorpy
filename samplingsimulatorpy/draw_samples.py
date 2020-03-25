@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-def draw_samples(pop, reps, n_s):
+def draw_samples(pop, reps, sample_size):
 
     """
     Draws samples of various sizes from a population
@@ -13,7 +13,7 @@ def draw_samples(pop, reps, n_s):
         The virtual population as a dataframe
     reps : integer
         The number of replications for each sample size as an integer
-    n_s : list
+    sample_size : list
         The sample size for each one of the samples as a list
 
     Returns
@@ -32,7 +32,7 @@ def draw_samples(pop, reps, n_s):
     ValueError
         reps input is greater than 0
     TypeError
-        n_s array contains only integers
+        sample_size array contains only integers
 
     Examples
     --------
@@ -60,7 +60,7 @@ def draw_samples(pop, reps, n_s):
         raise ValueError("Number of replications must be greater than 0")
 
     # Check all values in sample size array are integers
-    for i in n_s:
+    for i in sample_size:
         if not isinstance(i, int):
             raise TypeError("At least one value in sample size "
                             "array is not an integer value")
@@ -69,15 +69,15 @@ def draw_samples(pop, reps, n_s):
     rep_list = []
 
     for i in range(reps):
-        for j in n_s:
+        for j in sample_size:
             value = pop[list(pop.columns)[0]].tolist()
             sample = np.random.choice(value, size=j)
             samples.append(sample)
 
     samples = np.concatenate(samples)
-    s = [n for n in n_s for i in range(n) for j in range(reps)]
+    s = [n for n in sample_size for i in range(n) for j in range(reps)]
 
-    for i in n_s:
+    for i in sample_size:
         rep_list = rep_list + [j for j in range(1, reps + 1) for k in range(i)]
 
     return(pd.DataFrame({"replicate": rep_list, list(pop.columns)[0]: samples,
