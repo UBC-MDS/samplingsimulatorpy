@@ -88,14 +88,14 @@ generate_virtual_pop(size, population_name, distribution_func, *para)
 
 ``` 
 from samplingsimulatorpy import draw_samples
-draw_samples(pop, reps, n_s)
+draw_samples(pop, reps, sample_size)
 ```
 
 **Arguments:**
 
   - `pop` the virtual population as a data frame
   - `reps` the number of replication for each sample size as an integer value
-  - `n_s` the sample size for each one of the samples as a list
+  - `sample_size` the sample size for each one of the samples as a list
 
 **Example:**
 
