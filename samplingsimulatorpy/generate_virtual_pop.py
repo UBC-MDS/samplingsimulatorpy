@@ -47,9 +47,9 @@ def generate_virtual_pop(size, population_name, distribution_func, *para):
     try:
         distribution_func(*para, size)
     except TypeError:
-        raise TypeError('Please enter a valid distribution function ' +
-              'with correct number of parameters for ' +
-              'the distribution function')
+        raise TypeError('Please enter a valid distribution function '
+                        'with correct number of parameters for '
+                        'the distribution function')
 
     pop = pd.DataFrame(distribution_func(*para, size=size),
                        columns=[population_name])

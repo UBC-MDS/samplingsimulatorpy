@@ -24,11 +24,14 @@ def test_neg_size():
 
 def test_not_int():
     # Check if the float number size will give a ValueError
-    with pytest.raises(TypeError, match='Size of population must be a positive integer'):
+    with pytest.raises(TypeError,
+                       match='Size of population must be a positive integer'):
         generate_virtual_pop(10.5, "Height", np.random.normal, 0, 1)
-    with pytest.raises(TypeError, match='Size of population must be a positive integer'):
+    with pytest.raises(TypeError,
+                       match='Size of population must be a positive integer'):
         generate_virtual_pop(100.5, "Height", np.random.normal, 0, 1)
-    with pytest.raises(TypeError, match='Size of population must be a positive integer'):
+    with pytest.raises(TypeError,
+                       match='Size of population must be a positive integer'):
         generate_virtual_pop(20.5, "Height", np.random.normal, 0, 1)
 
 
@@ -44,15 +47,15 @@ def test_not_func():
 
 def test_not_right_number():
     # Check if the incorrect number of parameters will give a TypeError
-    with pytest.raises(TypeError, match='Please enter a valid distribution '+
-              'function with correct number of parameters for ' +
-              'the distribution function'):
+    with pytest.raises(TypeError, match='Please enter a valid distribution '
+                       'function with correct number of parameters for '
+                       'the distribution function'):
         generate_virtual_pop(100, "Height", np.random.normal, 0, 1, 2)
-    with pytest.raises(TypeError, match='Please enter a valid distribution '+
-              'function with correct number of parameters for ' +
-              'the distribution function'):
+    with pytest.raises(TypeError, match='Please enter a valid distribution '
+                       'function with correct number of parameters for '
+                       'the distribution function'):
         generate_virtual_pop(200, "Height", np.random.poisson, 10, 10)
-    with pytest.raises(TypeError, match='Please enter a valid distribution '+
-              'function with correct number of parameters for ' +
-              'the distribution function'):
+    with pytest.raises(TypeError, match='Please enter a valid distribution '
+                       'function with correct number of parameters for '
+                       'the distribution function'):
         generate_virtual_pop(50, "Height", np.random.gamma, 2, 2, 3)

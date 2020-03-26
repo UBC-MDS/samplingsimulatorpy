@@ -13,10 +13,12 @@ samples2 = draw_samples(pop2, 2, [2, 3])
 
 def test_pop():
     # Test if empty dataframes will get a TypeError
-    with pytest.raises(TypeError, match="Population input is not a valid data frame"):
+    with pytest.raises(TypeError,
+                       match="Population input is not a valid data frame"):
         stat_summary([], [], [np.mean, np.std])
     # Test if a empty dataframe will get a TypeError
-    with pytest.raises(TypeError, match="Samples input is not a valid data frame"):
+    with pytest.raises(TypeError,
+                       match="Samples input is not a valid data frame"):
         stat_summary(pop1, [], [np.mean, np.std])
     # Test if not a wrong function will get a TypeError
     with pytest.raises(TypeError, match="Parameter input is not a valid list"):
