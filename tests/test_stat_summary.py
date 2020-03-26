@@ -18,7 +18,7 @@ def test_pop():
     # Test if a empty dataframe will get a TypeError
     with pytest.raises(TypeError):
         stat_summary(pop1, [], ['np.mean', 'np.std'])
-    # Test if not a list will get a TypeError
+    # Test if not a dataframe will get a TypeError
     with pytest.raises(TypeError):
         stat_summary(pop1, samples1, 'np.mean')
 
