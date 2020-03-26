@@ -14,27 +14,27 @@ samples2 = draw_samples(pop2, 2, [2, 3])
 def test_pop():
     # Test if empty dataframes will get a TypeError
     with pytest.raises(TypeError):
-        stat_summary([], [], ['np.mean', 'np.std'])
+        stat_summary([], [], [np.mean, np.std])
     # Test if a empty dataframe will get a TypeError
     with pytest.raises(TypeError):
-        stat_summary(pop1, [], ['np.mean', 'np.std'])
-    # Test if not a dataframe will get a TypeError
+        stat_summary(pop1, [], [np.mean, np.std])
+    # Test if not a wrong function will get a TypeError
     with pytest.raises(TypeError):
         stat_summary(pop1, samples1, 'np.mean')
 
 
 def test_value():
     # Test if the output of the dataframe is as expected
-    assert(len(stat_summary(pop1, samples1, ['np.mean', 'np.std'])) == 2)
-    assert(len(stat_summary(pop1, samples1, ['np.mean', 'np.std']).columns) == 2)
-    assert(len(stat_summary(pop2, samples2, ['np.mean', 'np.std', 'np.max'])) == 2)
-    assert(len(stat_summary(pop2, samples2, ['np.mean', 'np.std', 'np.min']).columns) == 3)
+    assert(len(stat_summary(pop1, samples1, [np.mean, np.std])) == 2)
+    assert(len(stat_summary(pop1, samples1, [np.mean, np.std]).columns) == 2)
+    assert(len(stat_summary(pop2, samples2, [np.mean, np.std, np.max])) == 2)
+    assert(len(stat_summary(pop2, samples2, [np.mean, np.std, np.min]).columns) == 3)
 
 
 def test_not_func():
     # Test if passed in a not exist function will get a AttributeError
     with pytest.raises(AttributeError):
-        stat_summary(pop1, samples1, ['np.mea'])
+        stat_summary(pop1, samples1, [np.mea])
     # Test if passed in a not exist function will get a AttributeError
     with pytest.raises(AttributeError):
-        stat_summary(pop1, samples1, ['np.mean', 'np.sd'])
+        stat_summary(pop1, samples1, [np.mean, np.sd])
