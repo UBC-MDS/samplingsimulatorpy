@@ -53,7 +53,7 @@ def stat_summary(population, samples, parameter):
 
         try:
             pop_para = eval(parameter[i])(population)[0]
-            samples_para = eval(parameter[i])(samples)[0]
+            samples_para = eval(parameter[i])(samples.iloc[:, 1])
         except AttributeError:
             print('Please enter a valid parameter(s) of interest')
             raise AttributeError
