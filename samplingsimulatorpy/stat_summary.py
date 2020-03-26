@@ -35,7 +35,7 @@ def stat_summary(population, samples, parameter):
     Examples
     --------
     >>> from samplingsimulatorpy.stat_summary import stat_summary
-    >>> stat_summary(pop, samples, ['np.mean', 'np.std'])
+    >>> stat_summary(pop, samples, [np.mean, np.std])
     """
 
     if (len(population) <= 0 or not isinstance(population, pd.DataFrame)):
@@ -49,15 +49,15 @@ def stat_summary(population, samples, parameter):
 
     new_dict = {'data': ['pop', 'samples']}
 
-    for i in range(0, len(parameter)):
+    for func in parameter:
 
         try:
-            pop_para = eval(parameter[i])(population)[0]
-            samples_para = eval(parameter[i])(samples.iloc[:, 1])
+            pop_para = func(population)[0]
+            samples_para = func(samples.iloc[:, 1])
         except AttributeError:
             print('Please enter a valid parameter(s) of interest')
             raise AttributeError
 
-        new_dict[parameter[i]] = [pop_para, samples_para]
+        new_dict[func.__name__] = [pop_para, samples_para]
 
     return(pd.DataFrame(new_dict).set_index('data'))
