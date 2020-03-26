@@ -28,7 +28,8 @@ def test_value():
     assert(len(stat_summary(pop1, samples1, [np.mean, np.std])) == 2)
     assert(len(stat_summary(pop1, samples1, [np.mean, np.std]).columns) == 2)
     assert(len(stat_summary(pop2, samples2, [np.mean, np.std, np.max])) == 2)
-    assert(len(stat_summary(pop2, samples2, [np.mean, np.std, np.min]).columns) == 3)
+    assert(len(stat_summary(pop2, samples2,
+           [np.mean, np.std, np.min]).columns) == 3)
 
 
 def test_not_func():
