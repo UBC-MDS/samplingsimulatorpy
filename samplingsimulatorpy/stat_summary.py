@@ -55,7 +55,6 @@ def stat_summary(population, samples, parameter):
             pop_para = func(population)[0]
             samples_para = func(samples.iloc[:, 1])
         except AttributeError:
-            print('Please enter a valid parameter(s) of interest')
             raise AttributeError
 
         new_dict[func.__name__] = [pop_para, samples_para]
